@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Células | Igreja Cristo Salva Mococa</title>
-  <meta name="description" content="Células da Igreja Cristo Salva Mococa. Encontre uma célula por dia, horário e bairro e fale pelo WhatsApp." />
+  <meta name="description" content="Células da Igreja Cristo Salva Mococa. Encontre uma célula por dia, horário e fale pelo WhatsApp." />
   <style>
     :root{
       --bg:#0b1220;
@@ -77,32 +77,36 @@
 
 <script>
 const CELULAS = [
-  {dia:"Quarta-feira",horario:"15:00",bairro:"Jardim Primavera",endereco:"Rua João Goulart, nº 26",lider:"Michele",whatsapp:"5519989438636"},
-  {dia:"Quarta-feira",horario:"20:00",bairro:"Jardim Santa Clara",endereco:"Rua Heitor Villa-Lobos, nº 115",lider:"Alexandre",whatsapp:"5537991521699"},
-  {dia:"Segunda-feira",horario:"20:00",bairro:"Empreendedores",endereco:"Pizzaria Taliari",lider:"Pr. Narciso",whatsapp:"5511981016995"},
-  {dia:"Quarta-feira",horario:"20:00",bairro:"Jardim Progresso",endereco:"Rua Geraldo Fogarin, nº 54",lider:"Alexandre",whatsapp:"5511975136732"},
-  {dia:"Quarta-feira",horario:"20:00",bairro:"Conj. Hab. Nelson Niero",endereco:"R. João Grilo Filho, nº 84",lider:"Rogério",whatsapp:"5519986101422"},
-  {dia:"Quarta-feira",horario:"19:30",bairro:"Vila Carvalho",endereco:"Rua Domiciano Custódio Dias, nº 562",lider:"Ademir",whatsapp:"551991515936"},
-  {dia:"Quarta-feira",horario:"20:00",bairro:"Ari Estevão",endereco:"R. Nelson Marçal, 66",lider:"Júlio Morila",whatsapp:"5519993647352"},
-  {dia:"Quarta-feira",horario:"20:00",bairro:"Jardim São Domingos",endereco:"R. Gentil Ferreira Silva, 544",lider:"Flavia Di Pietro",whatsapp:""}
+  {dia:"Quarta-feira",horario:"15:00",tipo:"bairro",bairro:"Jardim Primavera",endereco:"Rua João Goulart, nº 26",lider:"Michele",whatsapp:"5519989438636"},
+  {dia:"Quarta-feira",horario:"20:00",tipo:"bairro",bairro:"Jardim Santa Clara",endereco:"Rua Heitor Villa-Lobos, nº 115",lider:"Alexandre",whatsapp:"5537991521699"},
+  {dia:"Segunda-feira",horario:"20:00",tipo:"empreendedores",bairro:"Célula de Empreendedores",endereco:"R. Prof. Dr. José Pedro de Carvalho Lima, 322 - Jardim São Domingos (Taliari Pizzaria)",lider:"Pr. Narciso",whatsapp:"5511981016995"},
+  {dia:"Quarta-feira",horario:"20:00",tipo:"bairro",bairro:"Jardim Progresso",endereco:"Rua Geraldo Fogarin, nº 54",lider:"Alexandre",whatsapp:"5511975136732"},
+  {dia:"Quarta-feira",horario:"20:00",tipo:"bairro",bairro:"Conj. Hab. Nelson Niero",endereco:"R. João Grilo Filho, nº 84",lider:"Rogério",whatsapp:"5519986101422"},
+  {dia:"Quarta-feira",horario:"19:30",tipo:"bairro",bairro:"Vila Carvalho",endereco:"Rua Domiciano Custódio Dias, nº 562",lider:"Ademir",whatsapp:"551991515936"},
+  {dia:"Quarta-feira",horario:"20:00",tipo:"bairro",bairro:"Ari Estevão",endereco:"R. Nelson Marçal, 66",lider:"Júlio Morila",whatsapp:"5519993647352"},
+  {dia:"Quarta-feira",horario:"20:00",tipo:"bairro",bairro:"Jardim São Domingos",endereco:"R. Gentil Ferreira Silva, 544",lider:"Flavia Di Pietro",whatsapp:"5511998213771"}
 ];
 
 function render(list){
   const g=document.getElementById("grid");
   g.innerHTML="";
   list.forEach(c=>{
+    const titulo = c.tipo === "empreendedores"
+      ? "<b>Célula de Empreendedores</b>"
+      : "<b>Bairro:</b> " + c.bairro;
+
     g.innerHTML+=`
     <div class="card">
       <div class="top">
         <strong>${c.dia} • ${c.horario}</strong><br>
-        <span><b>Bairro:</b> ${c.bairro}</span>
+        <span>${titulo}</span>
       </div>
       <div class="mid">
         <div><b>Líder:</b> ${c.lider}</div>
         <div><b>Endereço:</b> ${c.endereco}</div>
       </div>
       <div class="bottom">
-        ${c.whatsapp ? `<a class="cta" target="_blank" href="https://wa.me/${c.whatsapp}">Falar no WhatsApp</a>` : `<span style="text-align:center;color:#9bb0d0">Contato via secretaria</span>`}
+        <a class="cta" target="_blank" href="https://wa.me/${c.whatsapp}">Falar no WhatsApp</a>
       </div>
     </div>`;
   });
