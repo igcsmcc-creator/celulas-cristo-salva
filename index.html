@@ -83,7 +83,8 @@ const CELULAS = [
   {dia:"Quarta-feira",horario:"20:00",bairro:"Jardim Progresso",endereco:"Rua Geraldo Fogarin, nº 54",lider:"Alexandre",whatsapp:"5511975136732"},
   {dia:"Quarta-feira",horario:"20:00",bairro:"Conj. Hab. Nelson Niero",endereco:"R. João Grilo Filho, nº 84",lider:"Rogério",whatsapp:"5519986101422"},
   {dia:"Quarta-feira",horario:"19:30",bairro:"Vila Carvalho",endereco:"Rua Domiciano Custódio Dias, nº 562",lider:"Ademir",whatsapp:"551991515936"},
-  {dia:"Quarta-feira",horario:"20:00",bairro:"Ari Estevão",endereco:"R. Nelson Marçal, 66 - Ari Estevão",lider:"Júlio Morila",whatsapp:"5519993647352"}
+  {dia:"Quarta-feira",horario:"20:00",bairro:"Ari Estevão",endereco:"R. Nelson Marçal, 66",lider:"Júlio Morila",whatsapp:"5519993647352"},
+  {dia:"Quarta-feira",horario:"20:00",bairro:"Jardim São Domingos",endereco:"R. Gentil Ferreira Silva, 544",lider:"Flavia Di Pietro",whatsapp:""}
 ];
 
 function render(list){
@@ -101,7 +102,7 @@ function render(list){
         <div><b>Endereço:</b> ${c.endereco}</div>
       </div>
       <div class="bottom">
-        <a class="cta" target="_blank" href="https://wa.me/${c.whatsapp}">Falar no WhatsApp</a>
+        ${c.whatsapp ? `<a class="cta" target="_blank" href="https://wa.me/${c.whatsapp}">Falar no WhatsApp</a>` : `<span style="text-align:center;color:#9bb0d0">Contato via secretaria</span>`}
       </div>
     </div>`;
   });
