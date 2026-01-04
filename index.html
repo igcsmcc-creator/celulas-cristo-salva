@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Células | Igreja Cristo Salva</title>
-  <meta name="description" content="Encontre uma célula da Igreja Cristo Salva por dia, horário e região. Clique e fale no WhatsApp." />
+  <title>Células | Igreja Cristo Salva Mococa</title>
+  <meta name="description" content="Células da Igreja Cristo Salva Mococa. Encontre uma célula por dia, horário e região e fale pelo WhatsApp." />
   <style>
     :root{
       --bg:#0b1220;
@@ -12,24 +12,21 @@
       --muted:#9bb0d0;
       --text:#eaf1ff;
       --line:#22304f;
-      --accent:#66e3a5;
-      --accent2:#7db3ff;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius: 16px;
+      --accent:#00a859;
+      --radius:16px;
     }
     *{box-sizing:border-box}
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: radial-gradient(1200px 700px at 20% 0%, rgba(125,179,255,.15), transparent 60%),
-                  radial-gradient(900px 600px at 90% 10%, rgba(102,227,165,.12), transparent 55%),
-                  var(--bg);
+      background: var(--bg);
       color:var(--text);
     }
     .wrap{max-width:1100px;margin:0 auto;padding:28px 16px 56px}
-    header{display:flex;gap:16px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;margin-bottom:18px}
-    .title h1{margin:0;font-size:26px}
-    .title p{margin:6px 0 0;color:var(--muted)}
+    header{text-align:center;margin-bottom:24px}
+    header img{max-width:140px;margin-bottom:10px}
+    h1{margin:0}
+    p{color:var(--muted)}
     .controls{display:grid;grid-template-columns:1fr 220px 220px;gap:10px;margin:14px 0 18px}
     @media(max-width:860px){.controls{grid-template-columns:1fr}}
     input,select,button{
@@ -43,19 +40,17 @@
     @media(max-width:620px){.grid{grid-template-columns:1fr}}
     .card{background:rgba(18,27,46,.72);border:1px solid var(--line);border-radius:var(--radius);display:flex;flex-direction:column}
     .top{padding:14px;border-bottom:1px solid var(--line)}
-    .badge{font-size:12px;margin-bottom:8px}
     .mid{padding:12px}
-    .bottom{padding:12px;display:flex;gap:8px}
-    .cta{flex:1;text-align:center;padding:10px;border-radius:10px;text-decoration:none;color:var(--text);border:1px solid var(--accent)}
+    .bottom{padding:12px}
+    .cta{display:block;text-align:center;padding:10px;border-radius:10px;text-decoration:none;color:#fff;background:var(--accent)}
   </style>
 </head>
 <body>
 <div class="wrap">
 <header>
-  <div class="title">
-    <h1>Células – Igreja Cristo Salva</h1>
-    <p>Encontre uma célula e fale direto no WhatsApp.</p>
-  </div>
+  <img src="logo.png" alt="Igreja Cristo Salva Mococa">
+  <h1>Igreja Cristo Salva Mococa</h1>
+  <p>Encontre uma célula e participe conosco</p>
 </header>
 
 <section class="controls">
@@ -75,12 +70,12 @@
 
 <script>
 const CELULAS = [
-  {tipo:"Célula",dia:"Quarta-feira",horario:"15:00",local:"Jardim Primavera",endereco:"Rua João Goulart, nº 26",lider:"Michele",whatsapp:"5519989438636"},
-  {tipo:"Célula",dia:"Quarta-feira",horario:"20:00",local:"Jardim Santa Clara",endereco:"Rua Heitor Villa-Lobos, nº 115",lider:"Alexandre",whatsapp:"5537991521699"},
-  {tipo:"Empreendedores",dia:"Segunda-feira",horario:"20:00",local:"Empreendedores",endereco:"Pizzaria Taliari",lider:"Pr. Narciso",whatsapp:"5511981016995"},
-  {tipo:"Célula",dia:"Quarta-feira",horario:"20:00",local:"Jardim Progresso",endereco:"Rua Geraldo Fogarin, nº 54",lider:"Alexandre",whatsapp:"5511975136732"},
-  {tipo:"Célula",dia:"Quarta-feira",horario:"20:00",local:"Conj. Hab. Nelson Niero",endereco:"R. João Grilo Filho, nº 84 – Conj. Hab. Nelson Niero",lider:"Rogério",whatsapp:"5519986101422"},
-  {tipo:"Célula",dia:"Quarta-feira",horario:"19:30",local:"Vila Carvalho",endereco:"Rua Domiciano Custódio Dias, nº 562",lider:"Ademir",whatsapp:"551991515936"}
+  {dia:"Quarta-feira",horario:"15:00",local:"Jardim Primavera",endereco:"Rua João Goulart, nº 26",lider:"Michele",whatsapp:"5519989438636"},
+  {dia:"Quarta-feira",horario:"20:00",local:"Jardim Santa Clara",endereco:"Rua Heitor Villa-Lobos, nº 115",lider:"Alexandre",whatsapp:"5537991521699"},
+  {dia:"Segunda-feira",horario:"20:00",local:"Empreendedores",endereco:"Pizzaria Taliari",lider:"Pr. Narciso",whatsapp:"5511981016995"},
+  {dia:"Quarta-feira",horario:"20:00",local:"Jardim Progresso",endereco:"Rua Geraldo Fogarin, nº 54",lider:"Alexandre",whatsapp:"5511975136732"},
+  {dia:"Quarta-feira",horario:"20:00",local:"Conj. Hab. Nelson Niero",endereco:"R. João Grilo Filho, nº 84",lider:"Rogério",whatsapp:"5519986101422"},
+  {dia:"Quarta-feira",horario:"19:30",local:"Vila Carvalho",endereco:"Rua Domiciano Custódio Dias, nº 562",lider:"Ademir",whatsapp:"551991515936"}
 ];
 
 function render(list){
@@ -90,7 +85,6 @@ function render(list){
     g.innerHTML+=`
     <div class="card">
       <div class="top">
-        <div class="badge">${c.tipo}</div>
         <strong>${c.dia} • ${c.horario}</strong><br>${c.local}
       </div>
       <div class="mid">
@@ -98,7 +92,7 @@ function render(list){
         <div><b>Local:</b> ${c.endereco}</div>
       </div>
       <div class="bottom">
-        <a class="cta" target="_blank" href="https://wa.me/${c.whatsapp}">WhatsApp</a>
+        <a class="cta" target="_blank" href="https://wa.me/${c.whatsapp}">Falar no WhatsApp</a>
       </div>
     </div>`;
   });
@@ -107,9 +101,7 @@ function render(list){
 function apply(){
   const q=document.getElementById("q").value.toLowerCase();
   const d=document.getElementById("day").value;
-  render(CELULAS.filter(c=>{
-    return (!d||c.dia===d) && JSON.stringify(c).toLowerCase().includes(q);
-  }));
+  render(CELULAS.filter(c=>(!d||c.dia===d) && JSON.stringify(c).toLowerCase().includes(q)));
 }
 function clearFilters(){
   document.getElementById("q").value="";
