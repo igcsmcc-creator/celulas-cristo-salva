@@ -43,6 +43,8 @@
     .mid{padding:12px}
     .bottom{padding:12px}
     .cta{display:block;text-align:center;padding:10px;border-radius:10px;text-decoration:none;color:#fff;background:var(--accent)}
+    footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--line);text-align:center}
+    footer strong{color:#fff}
   </style>
 </head>
 <body>
@@ -66,6 +68,14 @@
 <main>
   <div id="grid" class="grid"></div>
 </main>
+
+<footer>
+  <p>
+    Em caso de dúvidas sobre <strong>cultos, células</strong> ou outras informações,<br>
+    fale com <strong>Ana Laura</strong> pelo WhatsApp:<br>
+    <strong>+55 19 99595-6210</strong>
+  </p>
+</footer>
 </div>
 
 <script>
@@ -75,7 +85,8 @@ const CELULAS = [
   {dia:"Segunda-feira",horario:"20:00",local:"Empreendedores",endereco:"Pizzaria Taliari",lider:"Pr. Narciso",whatsapp:"5511981016995"},
   {dia:"Quarta-feira",horario:"20:00",local:"Jardim Progresso",endereco:"Rua Geraldo Fogarin, nº 54",lider:"Alexandre",whatsapp:"5511975136732"},
   {dia:"Quarta-feira",horario:"20:00",local:"Conj. Hab. Nelson Niero",endereco:"R. João Grilo Filho, nº 84",lider:"Rogério",whatsapp:"5519986101422"},
-  {dia:"Quarta-feira",horario:"19:30",local:"Vila Carvalho",endereco:"Rua Domiciano Custódio Dias, nº 562",lider:"Ademir",whatsapp:"551991515936"}
+  {dia:"Quarta-feira",horario:"19:30",local:"Vila Carvalho",endereco:"Rua Domiciano Custódio Dias, nº 562",lider:"Ademir",whatsapp:"551991515936"},
+  {dia:"Quarta-feira",horario:"20:00",local:"Ari Estevão",endereco:"R. Nelson Marçal, 66 - Ari Estevão",lider:"Júlio Morila",whatsapp:""}
 ];
 
 function render(list){
@@ -92,7 +103,7 @@ function render(list){
         <div><b>Local:</b> ${c.endereco}</div>
       </div>
       <div class="bottom">
-        <a class="cta" target="_blank" href="https://wa.me/${c.whatsapp}">Falar no WhatsApp</a>
+        ${c.whatsapp ? `<a class="cta" target="_blank" href="https://wa.me/${c.whatsapp}">Falar no WhatsApp</a>` : `<span style="text-align:center;color:#9bb0d0">Contato via secretaria</span>`}
       </div>
     </div>`;
   });
